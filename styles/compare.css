@@ -1,0 +1,32 @@
+.compare-row {
+  display: grid; grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: 10px; margin-bottom: 28px;
+}
+.compare-cell { grid-column: span 6; }
+.compare-cell {
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--hairline);
+}
+.compare-label {
+  font-size: var(--text-xs); font-weight: var(--weight-medium); letter-spacing: var(--tracking-wide);
+  color: var(--muted);
+  padding: 10px 14px; background: var(--surface);
+  border-bottom: 1px solid var(--hairline);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.compare-label .badge {
+  font-size: var(--text-xs); font-weight: var(--weight-medium);
+  padding: 2px 8px; border-radius: 999px;
+  letter-spacing: var(--tracking-wider);
+}
+.badge.bad  { background: var(--error-bg); color: var(--error); }
+.badge.good { background: var(--success-bg); color: var(--success); }
+.compare-body { padding: 16px; background: var(--surface); }
+.compare-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 0;
+  object-fit: contain;
+}

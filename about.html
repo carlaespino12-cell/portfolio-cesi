@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="About Carla Espino - Product Designer with expertise in SaaS, hardware, and multi-platform experiences. Background in industrial design and design operations." />
+<meta property="og:title" content="About Carla Espino" />
+<meta property="og:description" content="Product designer simplifying complex systems into seamless experiences." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#FFFFFF" />
+<title>About — Carla Espino</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-avatar"></span>
+      <span class="nav-name">Carla Espino</span>
+    </a>
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab">Work</a>
+      <a href="about.html" class="nav-tab active">About</a>
+    </div>
+    <div class="nav-links">
+      <a href="https://www.linkedin.com/in/carla-esi/" target="_blank" rel="noopener noreferrer" class="btn nav-link nav-contact external-link">
+        LinkedIn
+        <span class="nav-arrow"><i data-lucide="arrow-right" width="11" height="11" stroke-width="1.2" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- 1 · Background ─────────────────────────────────── -->
+  <div class="bg-section bg-section--first fade-in" id="about">
+    <span class="bg-label">My background</span>
+    <div class="bg-content">
+      <p class="bg-para">Product designer with 4+ years of experience shaping cross-device, system-driven experiences for complex products. I started in industrial design — spending years turning constraints, materials, and manufacturing limits into better ideas. That way of thinking never left me.</p>
+      <p class="bg-para">I moved into digital product design because the problems were harder and the impact was larger. Since then I've designed across enterprise SaaS, hardware control panels, and multi-platform workflows — always looking for the clearest, simplest version of something that actually works for people.</p>
+    </div>
+  </div>
+
+  <!-- 3 · Experience ─────────────────────────────────── -->
+  <div class="exp-section fade-in" id="experience">
+    <span class="exp-label">Experience</span>
+    <div class="exp-content">
+      <div class="exp-list">
+        <div class="exp-entry">
+          <span class="exp-role">Product Designer <span class="exp-company">· HP Inc + Nacar</span></span>
+          <span class="exp-years">2024–present</span>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-role">Interaction Designer &amp; Design System <span class="exp-company">· HP Inc + Nacar</span></span>
+          <span class="exp-years">2022–2024</span>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-role">UX Design Intern <span class="exp-company">· Gartner — Digital Markets</span></span>
+          <span class="exp-years">2022</span>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-role">Industrial Designer <span class="exp-company">· Mario Ruiz Studio</span></span>
+          <span class="exp-years">2018–2022</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · Education ─────────────────────────────────── -->
+  <div class="exp-section fade-in" id="education">
+    <span class="exp-label">Education</span>
+    <div class="exp-content">
+      <div class="exp-list">
+        <div class="exp-entry">
+          <span class="exp-role">Masters in User Experience Design <span class="exp-company">· Shifta</span></span>
+          <span class="exp-badge">Master's</span>
+          <span class="exp-years">2021–2022</span>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-role">Degree in Industrial Design Engineering <span class="exp-company">· Elisava</span></span>
+          <span class="exp-badge">Degree</span>
+          <span class="exp-years">2014–2019</span>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-role">Degree in Product Design <span class="exp-company">· Elisava</span></span>
+          <span class="exp-badge">Degree</span>
+          <span class="exp-years">2014–2019</span>
+        </div>
+        <div class="exp-entry exp-entry--cert">
+          <span class="exp-role">Design Systems Specialist <span class="exp-company">· Figma Camp</span></span>
+          <span class="exp-badge">Certificate</span>
+          <span class="exp-years">2024–2025</span>
+        </div>
+        <div class="exp-entry exp-entry--cert">
+          <span class="exp-role">Design Ops <span class="exp-company">· UXer School</span></span>
+          <span class="exp-badge">Certificate</span>
+          <span class="exp-years">2024</span>
+        </div>
+        <div class="exp-entry exp-entry--cert">
+          <span class="exp-role">Behavioral Design Bootcamp <span class="exp-company">· The Behavioral School</span></span>
+          <span class="exp-badge">Certificate</span>
+          <span class="exp-years">2023</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer></footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="content.js"></script>
+<script>
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>

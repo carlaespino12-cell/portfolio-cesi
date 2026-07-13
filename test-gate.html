@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gate preview — Carla Espino</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  :root {
+    --lav-bg:      #EEF3FD;
+    --lav-border:  #AECAF4;
+    --lav-accent:  #024AD8;
+    --lav-muted:   #5580DC;
+    --lav-sep:     #AECAF4;
+  }
+
+  body { background: var(--bg); padding: 40px 24px; }
+
+  .preview-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .preview-toolbar span {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin-right: 4px;
+  }
+  .preview-btn {
+    height: 32px;
+    padding: 0 14px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: var(--bg);
+    font-family: inherit;
+    font-size: var(--text-sm);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .preview-btn:hover { background: var(--surface); }
+  .preview-btn.active {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+  }
+
+  /* ── Gate card ── */
+  .cs-gate {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 72px 80px 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .cs-gate-icon-wrap {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+    color: var(--lav-accent);
+    margin-bottom: 20px;
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, width 0.25s ease, height 0.25s ease;
+  }
+  .cs-gate-title {
+    font-size: var(--text-lg); font-weight: var(--weight-medium);
+    color: var(--text); margin: 0 0 12px 0; line-height: var(--leading-snug);
+    transition: opacity 0.2s ease;
+  }
+  .cs-gate-body {
+    font-size: var(--text-base); color: var(--muted);
+    line-height: var(--leading-relaxed); margin: 0 0 24px 0; max-width: 58ch;
+    transition: opacity 0.2s ease;
+  }
+  .cs-gate-split {
+    display: inline-flex; align-items: center;
+    background: #fff; border: 1px solid var(--hairline);
+    border-radius: 999px; padding: 4px 4px 4px 14px;
+    transition: opacity 0.2s ease;
+  }
+  .cs-gate-input {
+    flex: 1; min-width: 160px; height: 34px; padding: 0;
+    font-family: inherit; font-size: var(--text-base);
+    color: var(--text); background: transparent; border: none; outline: none;
+  }
+  .cs-gate-input::placeholder { color: var(--gray-50); }
+  .cs-gate-split-btn {
+    display: inline-flex; align-items: center; height: 34px; padding: 0 14px;
+    background: var(--text); color: #fff; border: none; border-radius: 999px;
+    font-family: inherit; font-size: var(--text-base); cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .cs-gate-contact {
+    font-size: var(--text-sm); color: var(--muted); margin: 14px 0 0 0;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    transition: opacity 0.2s ease;
+  }
+  .cs-gate-email {
+    font-family: inherit; font-size: var(--text-base); font-weight: var(--weight-regular);
+    color: var(--text); background: none; border: none; padding: 0; cursor: pointer;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* ── State: success ── */
+  .cs-gate--success {
+    border-color: var(--hairline);
+    box-shadow: none;
+  }
+  .cs-gate--success .cs-gate-body,
+  .cs-gate--success .cs-gate-split,
+  .cs-gate--success .cs-gate-contact { display: none; }
+  .cs-gate--success .cs-gate-icon-wrap {
+    background: #EDFAF3; color: #2E7D32;
+  }
+  .cs-gate--success .cs-gate-title { color: #2E7D32; }
+
+  /* ── State: loading ── */
+  .cs-gate--loading {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    padding: 72px 80px;
+  }
+  .cs-gate--loading .cs-gate-title,
+  .cs-gate--loading .cs-gate-body,
+  .cs-gate--loading .cs-gate-split,
+  .cs-gate--loading .cs-gate-contact { display: none; }
+  .cs-gate--loading .cs-gate-icon-wrap {
+    background: transparent; box-shadow: none;
+    color: var(--muted); margin-bottom: 0;
+    width: 72px; height: 72px;
+  }
+  .cs-gate--loading .cs-gate-icon-wrap svg { width: 36px; height: 36px; }
+
+  @keyframes cs-spin { to { transform: rotate(360deg); } }
+  .spin svg { animation: cs-spin 0.75s linear infinite; transform-origin: center; }
+</style>
+</head>
+<body>
+
+<div class="preview-toolbar">
+  <span>State:</span>
+  <button class="preview-btn active" onclick="setState('default')">Default</button>
+  <button class="preview-btn" onclick="setState('success')">✓ Success</button>
+  <button class="preview-btn" onclick="setState('loading')">Loading</button>
+  <button class="preview-btn" onclick="runSequence()">▶ Play full sequence</button>
+</div>
+
+<div class="cs-gate" id="gate">
+  <div class="cs-gate-icon-wrap" id="icon-wrap">
+    <svg id="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+  </div>
+  <h3 class="cs-gate-title">The rest of this case study is protected</h3>
+  <p class="cs-gate-body">If you'd like to see the full case study including design decisions, flows, and before/after screens, get in touch or enter the password below.</p>
+  <div class="cs-gate-split">
+    <input type="password" class="cs-gate-input" placeholder="Enter password" />
+    <button class="cs-gate-split-btn" id="unlock-btn">Unlock</button>
+  </div>
+  <p class="cs-gate-contact">Don't have the password?
+    <button class="cs-gate-email">carlaespinoseg@gmail.com</button>
+  </p>
+</div>
+
+<script>
+const gate    = document.getElementById('gate');
+const iconWrap = document.getElementById('icon-wrap');
+const iconSvg  = document.getElementById('icon-svg');
+const unlockBtn = document.getElementById('unlock-btn');
+
+const LOCK_PATH     = '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>';
+const CHECK_PATH    = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>';
+const SPINNER_PATH  = '<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="22 44" stroke-linecap="round"/>';
+const LOCK_TITLE    = 'The rest of this case study is protected';
+const SUCCESS_TITLE = "You're in";
+
+function setState(state) {
+  // Reset all
+  gate.classList.remove('cs-gate--success', 'cs-gate--loading');
+  iconWrap.classList.remove('spin');
+  gate.style.opacity = '';
+  gate.style.transform = '';
+  gate.style.display = '';
+  iconSvg.innerHTML = LOCK_PATH;
+  document.querySelector('.cs-gate-title').textContent = LOCK_TITLE;
+
+  // Update toolbar buttons
+  document.querySelectorAll('.preview-btn').forEach(b => b.classList.remove('active'));
+  event && event.target && event.target.classList.add('active');
+
+  if (state === 'success') {
+    gate.classList.add('cs-gate--success');
+    iconSvg.innerHTML = CHECK_PATH;
+    document.querySelector('.cs-gate-title').textContent = SUCCESS_TITLE;
+  }
+  if (state === 'loading') {
+    gate.classList.add('cs-gate--loading');
+    iconWrap.classList.add('spin');
+    iconSvg.innerHTML = SPINNER_PATH;
+  }
+}
+
+function runSequence() {
+  setState('default');
+  document.querySelectorAll('.preview-btn').forEach(b => b.classList.remove('active'));
+
+  setTimeout(() => {
+    gate.classList.add('cs-gate--success');
+    iconSvg.innerHTML = CHECK_PATH;
+    document.querySelector('.cs-gate-title').textContent = SUCCESS_TITLE;
+  }, 300);
+
+  setTimeout(() => {
+    gate.classList.remove('cs-gate--success');
+    gate.classList.add('cs-gate--loading');
+    iconWrap.classList.add('spin');
+    iconSvg.innerHTML = SPINNER_PATH;
+  }, 1000);
+
+  setTimeout(() => {
+    gate.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    gate.style.opacity = '0';
+    gate.style.transform = 'translateY(-12px)';
+  }, 1500);
+
+  setTimeout(() => {
+    gate.style.display = 'none';
+    setTimeout(() => {
+      gate.style.display = '';
+      gate.style.transition = '';
+      gate.style.opacity = '';
+      gate.style.transform = '';
+      setState('default');
+    }, 800);
+  }, 1900);
+}
+</script>
+</body>
+</html>

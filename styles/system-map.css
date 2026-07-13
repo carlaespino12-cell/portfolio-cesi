@@ -1,0 +1,86 @@
+/* ─── "How I work" — 3-column icon pill layout ───────────────────────────────
+   3 columns × 2 items. One column per process layer.
+   The icon pill (soft blue, rounded square) is the graphic element —
+   it creates visual weight without card chrome or decorative borders.
+─────────────────────────────────────────────────────────────────────────── */
+
+.flow-section {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--hairline);
+}
+.flow-heading {
+  font-size: var(--text-2xl); font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-base); color: var(--text);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ─── 3-column grid: one column per process layer ─── */
+.flow-columns {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--grid-gap, 24px);
+}
+
+/* ─── Column ─── */
+.flow-col {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Stagger columns left→right to reinforce reading direction */
+.flow-col:nth-child(2) { transition-delay: 80ms; }
+.flow-col:nth-child(3) { transition-delay: 160ms; }
+
+.flow-col-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ─── Icon pill — one per column, sits between label and items ─── */
+.flow-icon-pill {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: #EEF3FD;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-icon {
+  color: #024AD8;
+  display: block;
+}
+
+/* ─── Items list ─── */
+.flow-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.flow-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.flow-item-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--text);
+  line-height: var(--leading-snug);
+}
+.flow-item-desc {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  color: var(--muted);
+  line-height: var(--leading-base);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 839px) {
+  .flow-col { grid-column: span 4; } /* 8-col tablet: 2 cols visible, 3rd wraps */
+}
+@media (max-width: 599px) {
+  .flow-col { grid-column: span 4; } /* 4-col mobile: full width each */
+}

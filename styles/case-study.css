@@ -1,0 +1,605 @@
+/* ─── Hero animations ─── */
+@keyframes csHeroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes csLogoPop {
+  from { opacity: 0; transform: perspective(600px) rotateY(-180deg); }
+  to   { opacity: 1; transform: perspective(600px) rotateY(0deg); }
+}
+
+/* ─── Hero panel ─── */
+.cs-hero-section {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+.cs-hero-section > .cs-wrap:first-of-type {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding-top: 80px;
+  padding-bottom: 64px;
+}
+.cs-hero-section > .cs-wrap:not(:first-of-type) {
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+
+/* ─── Narrow content wrapper (800px) ─── */
+.cs-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--px);
+}
+.cs-wrap--wide {
+  max-width: var(--max-w);
+}
+
+/* ─── Tag chips ─── */
+.cs-tags {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-bottom: 28px;
+  animation: csHeroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+.cs-tag {
+  font-size: var(--text-xs); font-weight: var(--weight-regular);
+  color: var(--muted); letter-spacing: var(--tracking-wider);
+  padding: 5px 12px;
+  background: var(--surface);
+  border-radius: 8px;
+}
+
+/* ─── Back link ─── */
+.cs-back {
+  margin-bottom: 40px;
+  animation: csHeroFadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+/* ─── Product logo placeholder ─── */
+.cs-logo {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #DBEAFE 0%, #3B82F6 50%, #024AD8 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 28px;
+  animation: csLogoPop 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+.cs-logo svg { color: #fff; }
+
+/* ─── Hero ─── */
+.cs-hero {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 32px; margin-bottom: 64px;
+}
+.cs-hero-title {
+  font-size: 40px; font-weight: var(--weight-light);
+  line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); color: var(--text);
+  max-width: 820px;
+  margin-bottom: 16px;
+  animation: csHeroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+@media (max-width: 839px) {
+  .cs-hero-title { font-size: 30px; }
+}
+@media (max-width: 599px) {
+  .cs-hero-title { font-size: 24px; }
+}
+.cs-subtitle {
+  font-size: var(--text-md); font-weight: var(--weight-light); color: var(--muted);
+  max-width: 620px; line-height: var(--leading-loose);
+  margin-bottom: var(--space-2xl);
+  animation: csHeroFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+/* ─── Hero cover image ─── */
+.cs-hero-cover {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+  animation: csHeroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+}
+.cs-hero-cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/8;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.cs-figure {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  margin: var(--space-md) 0;
+}
+.cs-figure--surface { background: var(--surface); }
+.cs-figure--white   { background: #FFFFFF; }
+.cs-figure svg {
+  width: 100%;
+  display: block;
+  border-radius: inherit;
+}
+.cs-hero-cover--sm {
+  max-width: var(--max-w);
+}
+.cs-hero-cover--sm img {
+  height: 500px;
+}
+
+/* ─── Outcome highlight strip (below hero image) ─── */
+.cs-outcome-strip {
+  max-width: var(--max-w);
+  margin: 160px auto 140px;
+  padding: 0 var(--px);
+}
+.cs-outcome-summary {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-light);
+  color: var(--text);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  max-width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-2xl);
+}
+.cs-outcome-summary strong {
+  font-weight: var(--weight-regular);
+}
+.cs-outcome-strip .stats-row {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  gap: var(--grid-gap, 24px);
+  margin-bottom: 0;
+}
+.cs-outcome-strip .stat-cell {
+  background: var(--surface);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0;
+}
+.cs-outcome-strip .stat-num {
+  font-size: clamp(22px, 2.6vw, 32px);
+  color: var(--text);
+  font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  margin: 0 0 12px;
+}
+.cs-outcome-strip .stat-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-light);
+  color: var(--muted);
+  line-height: var(--leading-base);
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+.cs-outcome-strip .stats-row--3col .stat-cell { grid-column: span 4; }
+
+/* ─── Meta cards ─── */
+.meta-cards {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+}
+.meta-card { grid-column: span 3; }
+.meta-card {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  display: flex; flex-direction: column; gap: var(--space-xs);
+}
+.meta-key {
+  font-size: var(--text-xs); font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-wide); color: var(--muted);
+}
+.meta-val {
+  font-size: var(--text-base); font-weight: var(--weight-light); color: var(--text);
+  line-height: var(--leading-base);
+}
+
+/* ─── Section structure ─── */
+.cs-section { margin-bottom: 120px; }
+.cs-section + .cs-section { padding-top: 80px; }
+.sec-label {
+  font-size: var(--text-base); font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-base); color: var(--muted);
+  margin-bottom: var(--space-sm); display: block;
+}
+.sec-heading {
+  font-size: var(--text-2xl); font-weight: var(--weight-regular);
+  line-height: var(--leading-snug); letter-spacing: var(--tracking-snug); margin-bottom: var(--space-lg);
+}
+.sec-body {
+  font-size: 15px; font-weight: var(--weight-light); color: var(--gray-80);
+  line-height: var(--leading-loose); margin-bottom: var(--space-sm);
+}
+.sec-body--small {
+  font-size: var(--text-sm); color: var(--muted); margin-bottom: var(--space-lg);
+}
+
+/* ─── Visual block ─── */
+.vis-block {
+  background: var(--surface); border: 1px solid var(--hairline);
+  padding: 48px; margin-bottom: 64px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.vis-block.flush { padding: 0; overflow: hidden; }
+.vis-block > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.vis-block-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.vis-block-grid-2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  object-fit: contain;
+}
+
+/* ─── Sidebar body layout ─── */
+.cs-body {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.cs-content-row {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--grid-gap, 24px);
+  align-items: start;
+}
+.cs-sidenav {
+  grid-column: 1 / span 3;
+  position: sticky;
+  top: 110px;
+  padding-right: var(--space-sm);
+  margin-right: var(--space-xl);
+}
+.cs-sidenav-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.cs-sidenav-link {
+  display: block;
+  padding: 10px 12px;
+  font-size: var(--text-base); font-weight: var(--weight-regular);
+  color: var(--muted); text-decoration: none;
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+  margin-left: -3px;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.cs-sidenav-link:hover {
+  color: var(--text);
+  background: rgba(0,0,0,0.02);
+}
+.cs-sidenav-link.active {
+  background: rgba(0,0,0,0.03);
+  color: var(--text);
+  border-left-color: transparent;
+  font-weight: var(--weight-regular);
+  box-shadow: none;
+}
+.cs-main { grid-column: 4 / -1; padding: 48px; }
+
+/* ─── Metrics row (outcome cards) ─── */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.cs-metrics.--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cs-metric {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-metric-num {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-light);
+  color: var(--text);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+.cs-metric-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-light);
+  color: var(--muted);
+  line-height: var(--leading-base);
+}
+
+/* ─── Section subheading (h3 within a section) ─── */
+.sec-subheading {
+  font-size: var(--text-md); font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-snug); line-height: var(--leading-snug);
+  color: var(--text);
+  margin-top: 48px; margin-bottom: 16px;
+}
+
+/* ─── Callout block ─── */
+.cs-callout {
+  border-left: 2px solid var(--text);
+  padding: 18px 22px;
+  margin-bottom: 40px;
+  background: var(--surface);
+  border-radius: 0 8px 8px 0;
+}
+.cs-callout-body {
+  font-size: var(--text-base); font-weight: var(--weight-light);
+  color: var(--text); line-height: var(--leading-loose);
+}
+.cs-callout-body strong { font-weight: var(--weight-medium); }
+
+/* ─── Approach steps ─── */
+.approach-steps {
+  display: flex; flex-direction: column;
+  gap: 0;
+  margin-bottom: 40px;
+}
+.approach-step {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--hairline);
+}
+.approach-step:last-child { border-bottom: 1px solid var(--hairline); }
+.approach-step-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs); font-weight: var(--weight-regular);
+  color: var(--muted);
+  margin-top: 1px;
+}
+.approach-step-inner { display: flex; flex-direction: column; gap: var(--space-xs); }
+.approach-label {
+  display: block;
+  font-size: var(--text-base); font-weight: var(--weight-regular);
+  color: var(--text);
+}
+.approach-body {
+  font-size: var(--text-base); font-weight: var(--weight-light);
+  color: var(--muted); line-height: var(--leading-loose);
+}
+/* Tour step — no number badge */
+.approach-step--tour .approach-step-num {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+}
+
+/* ─── Image placeholder inside an approach step ─── */
+.approach-step-inner .cs-img-placeholder {
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+}
+
+/* ─── Image placeholder ─── */
+.cs-img-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  margin-bottom: 64px;
+  margin-top: 16px;
+}
+.cs-img-placeholder-label {
+  font-size: var(--text-sm); font-weight: var(--weight-regular);
+  color: var(--muted); letter-spacing: var(--tracking-wide);
+}
+
+/* ─── Context product rows ─── */
+.cs-context-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  margin-bottom: 20px;
+}
+.cs-context-item:last-of-type { margin-bottom: 32px; }
+.cs-context-icon {
+  width: 48px; height: 48px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.cs-context-icon--build   { background: #024AD8; }
+.cs-context-icon--printer { background: var(--surface); border: 1px solid var(--hairline); }
+.cs-context-item .sec-body { margin: 0; }
+
+/* ─── Strategy card (context section) ─── */
+.cs-strategy-card {
+  background: var(--surface); border-radius: var(--radius);
+  padding: 28px 32px; margin-top: 32px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.cs-strategy-lead {
+  font-size: var(--text-base); font-weight: var(--weight-regular);
+  color: var(--text); line-height: var(--leading-base); margin: 0;
+}
+.cs-strategy-bridge {
+  display: flex; align-items: center; gap: 16px;
+}
+.cs-strategy-bridge-item {
+  display: flex; flex-direction: column; gap: 2px;
+  background: var(--bg); border: 1px solid var(--hairline);
+  border-radius: 8px; padding: 10px 16px; flex: 1;
+}
+.cs-strategy-bridge-label {
+  font-size: var(--text-base); font-weight: var(--weight-regular); color: var(--text);
+}
+.cs-strategy-bridge-sub {
+  font-size: var(--text-sm); font-weight: var(--weight-light); color: var(--muted);
+}
+.cs-strategy-sub {
+  font-size: var(--text-sm); font-weight: var(--weight-regular);
+  color: var(--muted); margin: 0; letter-spacing: var(--tracking-wide);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.cs-strategy-list {
+  list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0;
+}
+.cs-strategy-list li {
+  font-size: var(--text-base); font-weight: var(--weight-light);
+  color: var(--text); line-height: var(--leading-base);
+  padding-left: 16px; position: relative;
+}
+.cs-strategy-list li::before {
+  content: '—'; position: absolute; left: 0;
+  color: var(--muted); font-weight: var(--weight-light);
+}
+
+/* ─── Outro / reach-out banner ─── */
+.cs-outro {
+  grid-column: 4 / -1;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+.cs-outro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cs-outro-line {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-light);
+  color: var(--muted);
+  line-height: var(--leading-base);
+}
+.cs-outro-line:first-child {
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.cs-outro-line a {
+  font-weight: var(--weight-medium);
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease;
+}
+.cs-outro-line a:hover { border-color: var(--text); }
+
+/* ─── Next project section ─── */
+.cs-next {
+  border-top: 1px solid var(--hairline);
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+.cs-next-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.cs-next-card--text {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s var(--ease-out), border-color 0.2s;
+}
+.cs-next-card--text:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border-color: var(--gray-40);
+}
+.cs-next-thumb {
+  flex: 0 0 33.33%; /* 4 of 12 cols */
+}
+.cs-next-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cs-next-card--text-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 32px;
+}
+.cs-next-card--text-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+  color: var(--text);
+}
+.cs-next-card--text-subtitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-light);
+  color: var(--muted);
+  line-height: var(--leading-base);
+}
+.cs-next-card--text-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+.cs-next-card--text-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 28px 32px;
+}
+.cs-next-card--text:hover .btn .btn-icon svg { color: var(--gray-70); }
+
+/* ─── Inline hyperlinks in case study body ─── */
+.cs-main a:not([class]) {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--text);
+  transition: opacity 0.15s ease;
+}
+.cs-main a:not([class]):hover {
+  opacity: 0.6;
+}

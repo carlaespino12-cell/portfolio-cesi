@@ -1,0 +1,35 @@
+/* ─── Design tokens ─── */
+@import url('styles/tokens.css');
+
+/* ─── Base ─── */
+@import url('styles/reset.css');
+@import url('styles/layout.css');
+
+/* ─── Navigation ─── */
+@import url('styles/nav.css');
+
+/* ─── Home page ─── */
+@import url('styles/hero.css');
+@import url('styles/card-interactive.css');
+@import url('styles/card-static.css');
+@import url('styles/home.css');
+@import url('styles/system-map.css');
+
+/* ─── Shared ─── */
+@import url('styles/buttons.css');
+@import url('styles/footer.css');
+@import url('styles/animations.css');
+
+/* ─── Case study ─── */
+@import url('styles/case-study.css');
+@import url('styles/stats.css');
+@import url('styles/challenge.css');
+@import url('styles/compare.css');
+@import url('styles/mockups.css');
+@import url('styles/journey.css');
+@import url('styles/pricing.css');
+@import url('styles/steps.css');
+@import url('styles/lists.css');
+
+/* ─── Responsive ─── */
+@import url('styles/responsive.css');

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Carla Espino - Product Designer. Designing seamless experiences for SaaS, construction software, and multi-platform systems." />
+<meta property="og:title" content="Carla Espino — Product Designer" />
+<meta property="og:description" content="Portfolio showcasing product design work across hardware, SaaS, and multi-platform environments." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#FFFFFF" />
+<title>Carla Espino — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-avatar"></span>
+      <span class="nav-name">Carla Espino</span>
+    </a>
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab active">Work</a>
+      <a href="about.html" class="nav-tab">About</a>
+    </div>
+    <div class="nav-links">
+      <a href="https://www.linkedin.com/in/carla-esi/" target="_blank" rel="noopener noreferrer" class="btn nav-link nav-contact external-link">
+        LinkedIn
+        <span class="nav-arrow"><i data-lucide="arrow-right" width="11" height="11" stroke-width="1.2" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-sub-row">
+      <span class="hero-tag">Product designer</span>
+      <p class="hero-sub">building SaaS products people actually use</p>
+    </div>
+    <h1 class="hero-title">Shaping product strategy through simple <i data-lucide="vector-square" class="hero-icon" width="28" height="28" stroke-width="1.6" aria-hidden="true"></i> and intuitive <i data-lucide="zap" class="hero-icon" width="28" height="28" stroke-width="1.6" aria-hidden="true"></i> experiences</h1>
+  </section>
+
+  <section class="case-studies" id="case-studies"></section>
+
+  </div><!-- /wrap -->
+
+  <section class="flow-section" style="display:none;">
+    <div class="wrap">
+      <h2 class="flow-heading">How I work</h2>
+
+      <div class="flow-columns">
+
+        <!-- Column 1: Problem framing -->
+        <div class="flow-col fade-in">
+          <div class="flow-icon-pill">
+            <i data-lucide="crosshair" class="flow-icon" width="20" height="20" stroke-width="1.5" aria-hidden="true"></i>
+          </div>
+          <span class="flow-col-label">Problem framing</span>
+          <div class="flow-items">
+            <div class="flow-item">
+              <span class="flow-item-title">Frame the real problem</span>
+              <span class="flow-item-desc">Go beyond the stated request</span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-item-title">Reduce system complexity</span>
+              <span class="flow-item-desc">Fix structure, not just interface</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Design approach -->
+        <div class="flow-col fade-in">
+          <div class="flow-icon-pill">
+            <i data-lucide="arrow-right-left" class="flow-icon" width="20" height="20" stroke-width="1.5" aria-hidden="true"></i>
+          </div>
+          <span class="flow-col-label">Design approach</span>
+          <div class="flow-items">
+            <div class="flow-item">
+              <span class="flow-item-title">Map flows before screens</span>
+              <span class="flow-item-desc">Design behavior before UI</span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-item-title">Make complexity usable</span>
+              <span class="flow-item-desc">Turn systems into clear interactions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Outcomes -->
+        <div class="flow-col fade-in">
+          <div class="flow-icon-pill">
+            <i data-lucide="flask-conical" class="flow-icon" width="20" height="20" stroke-width="1.5" aria-hidden="true"></i>
+          </div>
+          <span class="flow-col-label">Outcomes</span>
+          <div class="flow-items">
+            <div class="flow-item">
+              <span class="flow-item-title">Test assumptions early</span>
+              <span class="flow-item-desc">Avoid scaling the wrong solution</span>
+            </div>
+            <div class="flow-item">
+              <span class="flow-item-title">Align teams through shared models</span>
+              <span class="flow-item-desc">Use design to drive decisions</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<footer></footer>
+
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="content.js"></script>
+<script>
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>

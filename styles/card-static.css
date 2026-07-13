@@ -1,0 +1,21 @@
+/* ─── Static info card ─────────────────────────────────────────────
+   Non-interactive card used for informational content.
+   Currently used by: .how-item (index.html — "How I work" section)
+─────────────────────────────────────────────────────────────────── */
+.how-item {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 24px 22px 26px;
+  display: flex; flex-direction: column; gap: 18px;
+  cursor: default;
+}
+.how-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex-shrink: 0;
+  background: rgba(0,0,0,0.06); border-radius: 9px;
+  color: var(--muted);
+}
+.how-text {
+  font-size: var(--text-base); font-weight: var(--weight-light); color: var(--text);
+  line-height: var(--leading-relaxed); letter-spacing: var(--tracking-base);
+}

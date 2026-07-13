@@ -1,0 +1,107 @@
+/* ─── How I work ─── */
+.how-section {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--space-5xl);
+  align-items: start;
+}
+.how-label {
+  grid-column: span 4;
+  font-size: var(--text-lg); font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-base); line-height: var(--leading-snug); color: var(--text);
+  padding-top: 6px;
+}
+.how-grid {
+  grid-column: span 8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  list-style: none;
+}
+.how-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 20px 18px;
+}
+.how-icon {
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.how-text {
+  font-size: var(--text-base); font-weight: var(--weight-light);
+  color: var(--text); line-height: var(--leading-relaxed);
+}
+/* ─── My background ─── */
+.bg-section {
+  padding: var(--space-3xl) 0;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--space-5xl);
+  align-items: start;
+}
+.bg-label  { grid-column: span 4; }
+.bg-content { grid-column: span 8; }
+.bg-label {
+  font-size: var(--text-lg); font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-base); line-height: var(--leading-snug); color: var(--text);
+  padding-top: 6px;
+}
+.bg-content { display: flex; flex-direction: column; gap: 0; }
+.bg-section--first { border-top: none; }
+.bg-para {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-regular); color: var(--text);
+  line-height: var(--leading-base); letter-spacing: var(--tracking-base);
+}
+.bg-para + .bg-para {
+  margin-top: 20px;
+  color: var(--muted);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+}
+
+/* ─── Experience / Education section ─── */
+.exp-section {
+  padding: var(--space-3xl) 0;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--space-5xl);
+  align-items: start;
+}
+.exp-label {
+  grid-column: span 4;
+  font-size: var(--text-lg); font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-base); line-height: var(--leading-snug);
+  color: var(--text); padding-top: 6px;
+}
+.exp-content { grid-column: span 8; }
+.exp-list { display: flex; flex-direction: column; }
+.exp-entry {
+  display: flex; align-items: baseline; gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+}
+.exp-entry + .exp-entry { border-top: 1px solid var(--hairline); }
+.exp-role {
+  flex: 1;
+  font-size: var(--text-base); font-weight: var(--weight-regular); color: var(--text);
+}
+.exp-company {
+  font-size: var(--text-base); font-weight: var(--weight-light); color: var(--muted);
+}
+.exp-years {
+  font-size: var(--text-sm); font-weight: var(--weight-light); color: var(--muted);
+  white-space: nowrap; margin-left: auto;
+}
+.exp-entry--cert .exp-role,
+.exp-entry--cert .exp-company { color: var(--muted); font-weight: var(--weight-light); }
+.exp-badge {
+  display: inline-block; vertical-align: middle;
+  font-size: var(--text-xs); font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide); color: var(--muted);
+  border: 1px solid var(--hairline); border-radius: 3px;
+  padding: 1px 5px; margin-left: 6px; position: relative; top: -1px;
+}

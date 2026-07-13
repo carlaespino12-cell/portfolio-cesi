@@ -1,0 +1,18 @@
+.journey {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  border-left: 1px solid var(--hairline); border-top: 1px solid var(--hairline);
+}
+.j-step {
+  padding: 22px 18px; border-right: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background 0.2s;
+}
+.j-step.active { background: var(--text); }
+.j-step.active .j-num,
+.j-step.active .j-title,
+.j-step.active .j-sub { color: rgba(255,255,255,0.7); }
+.j-step.active .j-title { color: var(--bg); }
+.j-num   { font-size: var(--text-xs); color: var(--muted); letter-spacing: var(--tracking-wider); font-weight: var(--weight-regular); }
+.j-title { font-size: var(--text-sm); font-weight: var(--weight-regular); line-height: var(--leading-normal); }
+.j-sub   { font-size: var(--text-xs); color: var(--muted); margin-top: auto; }

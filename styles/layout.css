@@ -1,0 +1,8 @@
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--px); }
+
+/* ─── 12-column grid utility ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: var(--grid-gap, 24px);
+}

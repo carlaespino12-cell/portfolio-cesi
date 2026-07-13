@@ -1,0 +1,115 @@
+:root {
+  /* ─── Gray scale primitives ───────────────────────────────────────
+     Cool neutral gray ramp. Use semantic tokens below, not these
+     directly, so palette swaps only require changes in one place.
+  ─────────────────────────────────────────────────────────────────── */
+  --gray-0:   #FFFFFF;   /* pure white                  */
+  --gray-10:  #F7F8F9;   /* near-white, faint cool tint */
+  --gray-20:  #EFF1F3;   /* light cool gray             */
+  --gray-30:  #E6E8EC;   /* hairlines, dividers         */
+  --gray-40:  #CDD2D9;   /* borders, disabled states    */
+  --gray-50:  #A6ACB6;   /* placeholder text            */
+  --gray-60:  #7E8992;   /* muted / secondary text      */
+  --gray-70:  #5E6B77;   /* medium-emphasis text        */
+  --gray-80:  #3D4F5B;   /* supporting body text        */
+  --gray-90:  #22313F;   /* emphasized headings         */
+  --gray-100: #0F161E;   /* primary text / near-black   */
+
+  /* ─── Semantic surface tokens ─────────────────────────────────────
+     --bg      : page background (white)
+     --surface : subtle raised surface, e.g. vis-blocks, mockup frames
+     --panel   : card background — cool light gray so cards stand out
+                 visually against the white page (used by .how-item)
+  ─────────────────────────────────────────────────────────────────── */
+  --bg:              var(--gray-0);    /* #FFFFFF — page background    */
+  --surface:         var(--gray-10);  /* #F7F8F9 — subtle surfaces    */
+  --panel:           var(--gray-20);  /* #EFF1F3 — card backgrounds   */
+
+  /* ─── Border / line tokens ───────────────────────────────────────── */
+  --border:          var(--gray-30);  /* #E6E8EC — standard borders   */
+  --hairline:        var(--gray-30);  /* #E6E8EC — thin dividers      */
+
+  /* ─── Text tokens ────────────────────────────────────────────────── */
+  --text:            var(--gray-100); /* #0F161E — primary text       */
+  --text-emphasized: var(--gray-90);  /* #22313F — emphasized text    */
+  --muted:           var(--gray-60);  /* #7E8992 — secondary / muted  */
+
+  /* ─── Accent ─────────────────────────────────────────────────────── */
+  --accent:          var(--gray-100); /* #0F161E — matches --text     */
+
+  /* ─── Project header background (index card hero area) ───────────── */
+  --project-hdr:     var(--gray-10);  /* #F7F8F9                      */
+
+  /* ─── Status colors ─────────────────────────────────────────────── */
+  --success:         #2E7D32;
+  --success-bg:      #E5F5E9;
+  --success-border:  #B7E8C4;
+  --success-bar:     #81C784;
+  --error:           #D32F2F;
+  --error-bg:        #FFF0F0;
+  --error-border:    #FFD0D0;
+  --error-bar:       #FFB0B0;
+
+  /* ─── Layout ─────────────────────────────────────────────────────── */
+  --max-w:    1200px;
+  --px:       24px;   /* MD2 desktop margin (≥840px)      */
+  --gap:      104px;  /* vertical section spacing         */
+  --radius:   14px;   /* default card border-radius       */
+  --grid-gap: 24px;   /* MD2 desktop gutter (≥840px)      */
+  --grid-cols: 12;    /* MD2 desktop columns              */
+  /* ─── Spacing scale ─────────────────────────────────────────────────── */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-2xl: 48px;
+  --space-5xl: 64px;
+  --space-3xl: 72px;
+  --space-6xl: 80px;
+  --space-7xl: 100px;
+  --space-4xl: 104px;
+  /* ─── Animation ──────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* snappy deceleration  */
+
+  /* ─── Typography ──────────────────────────────────────────────────
+     Scale aligned with Carbon Design System & Airbnb conventions.
+     Use these tokens in component files — never raw px / em values.
+  ─────────────────────────────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Size scale */
+  --text-xs:      11px;                       /* metadata, badges, footnotes     */
+  --text-sm:      12px;                       /* captions, secondary labels, nav */
+  --text-base:    14px;                       /* primary body                    */
+  --text-md:      16px;                       /* large body, card subtitles      */
+  --text-lg:      20px;                       /* card titles                     */
+  --text-xl:      clamp(20px, 2.4vw, 26px);  /* section leads                   */
+  --text-2xl:     clamp(24px, 3.2vw, 32px);  /* sub-headings                    */
+  --text-3xl:     clamp(28px, 3.5vw, 38px);  /* section headings, stat numbers  */
+  --text-display: clamp(42px, 6vw, 54px);    /* hero / display titles           */
+
+  /* Line height */
+  --leading-none:    1;     /* numeric stats, dense displays */
+  --leading-tight:   1.08;  /* hero / display headings       */
+  --leading-snug:    1.2;   /* section headings              */
+  --leading-normal:  1.4;   /* UI text, nav, subheadings     */
+  --leading-base:    1.5;   /* body base                     */
+  --leading-relaxed: 1.65;  /* body long-form                */
+  --leading-loose:   1.8;   /* reading paragraphs            */
+
+  /* Letter spacing */
+  --tracking-tight:   -0.03em;  /* display / hero headings           */
+  --tracking-snug:    -0.02em;  /* section headings, numerics        */
+  --tracking-base:    -0.01em;  /* body, labels, nav                 */
+  --tracking-normal:   0;       /* neutral                           */
+  --tracking-wide:     0.02em;  /* small informational labels        */
+  --tracking-wider:    0.04em;  /* tiny counters, decorative labels  */
+  --tracking-widest:   0.08em;  /* smallest stamps, badges           */
+
+  /* Font weight */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+}

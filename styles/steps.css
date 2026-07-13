@@ -1,0 +1,31 @@
+/* ─── Step sequence (3-col grid) ─── */
+.step-seq {
+  display: grid; grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  gap: 1px; background: var(--hairline);
+}
+.step-item { grid-column: span 4; }
+.step-item {
+  background: var(--surface); padding: 18px 16px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.step-tag {
+  font-size: var(--text-xs); color: var(--muted);
+  letter-spacing: var(--tracking-wide); font-weight: var(--weight-regular);
+}
+
+/* ─── Onboarding steps row ─── */
+.steps-row { display: flex; align-items: center; border: 1px solid var(--hairline); }
+.step-pill {
+  flex: 1; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  border-right: 1px solid var(--hairline);
+  font-size: var(--text-sm); font-weight: var(--weight-light);
+}
+.step-pill:last-child { border-right: none; }
+.step-circle {
+  width: 22px; height: 22px; border: 1px solid var(--hairline);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-xs); color: var(--muted); flex-shrink: 0; font-weight: var(--weight-regular);
+}
+.step-circle.done   { background: var(--text); border-color: var(--text); color: #fff; }
+.step-circle.active { border-color: var(--text); color: var(--text); }

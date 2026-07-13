@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footer options</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Shared preview scaffolding ── */
+    .preview-page {
+      border-top: 4px solid #E6E8EC;
+      margin-top: 80px;
+    }
+    .preview-tag {
+      background: #F7F8F9;
+      border-bottom: 1px solid #E6E8EC;
+      padding: 12px 48px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #A6ACB6;
+    }
+    .preview-content {
+      padding: 80px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .preview-content-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #CDD2D9;
+      margin: 0 0 24px;
+    }
+    .preview-content-title {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: #0F161E;
+      margin: 0 0 16px;
+      line-height: 1.1;
+    }
+    .preview-content-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: #7E8992;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0;
+    }
+
+    /* ══ OPTION A: Dark band ══ */
+    .footer-a {
+      background: #0F161E;
+      padding: 64px 48px 40px;
+    }
+    .footer-a-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .footer-a-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .footer-a-cta {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin: 0;
+      max-width: 480px;
+    }
+    .footer-a-cta em { font-style: normal; color: #6EB3FF; }
+    .footer-a-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .footer-a-link {
+      font-size: 13px;
+      font-weight: 400;
+      color: #A6ACB6;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+    .footer-a-link:hover { color: #fff; }
+    .footer-a-bottom {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      font-size: 11px;
+      color: #3D4F5B;
+    }
+
+    /* ══ OPTION B: Big type ══ */
+    .footer-b {
+      background: #fff;
+      border-top: 1px solid #E6E8EC;
+      padding: 96px 48px 48px;
+    }
+    .footer-b-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-b-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #A6ACB6;
+      margin: 0 0 24px;
+    }
+    .footer-b-cta {
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: #0F161E;
+      margin: 0 0 48px;
+    }
+    .footer-b-cta em { font-style: normal; color: #024AD8; }
+    .footer-b-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 400;
+      color: #024AD8;
+      text-decoration: none;
+      border-bottom: 1.5px solid #024AD8;
+      padding-bottom: 2px;
+      margin-bottom: 40px;
+      transition: opacity 0.15s;
+    }
+    .footer-b-email:hover { opacity: 0.65; }
+    .footer-b-socials {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 64px;
+    }
+    .footer-b-social {
+      font-size: 12px;
+      font-weight: 500;
+      color: #7E8992;
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1px solid #E6E8EC;
+      border-radius: 999px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .footer-b-social:hover { border-color: #0F161E; color: #0F161E; }
+    .footer-b-bottom {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #E6E8EC;
+      padding-top: 20px;
+      font-size: 11px;
+      color: #A6ACB6;
+    }
+
+    /* ══ OPTION C: Split two-column ══ */
+    .footer-c {
+      background: #F7F8F9;
+      border-top: 1px solid #E6E8EC;
+      padding: 64px 48px 40px;
+    }
+    .footer-c-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .footer-c-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      padding-bottom: 56px;
+    }
+    .footer-c-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 6px;
+    }
+    .footer-c-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #0F161E;
+      margin: 0;
+    }
+    .footer-c-bio {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7E8992;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .footer-c-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .footer-c-social {
+      font-size: 12px;
+      color: #7E8992;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-c-social:hover { color: #0F161E; }
+    .footer-c-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .footer-c-cta {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #0F161E;
+      margin: 0;
+    }
+    .footer-c-cta em { font-style: normal; color: #024AD8; }
+    .footer-c-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .footer-c-btn {
+      font-size: 13px;
+      font-weight: 400;
+      color: #0F161E;
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #CDD2D9;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .footer-c-btn:hover { border-color: #0F161E; }
+    .footer-c-btn--primary {
+      background: #0F161E;
+      color: #fff;
+      border-color: #0F161E;
+    }
+    .footer-c-btn--primary:hover { background: #22313F; border-color: #22313F; }
+    .footer-c-bottom {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #E6E8EC;
+      padding-top: 20px;
+      font-size: 11px;
+      color: #A6ACB6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ OPTION A ══ -->
+  <div class="preview-page">
+    <div class="preview-tag">Option A — Dark</div>
+    <div class="preview-content">
+      <p class="preview-content-label">Last project</p>
+      <h2 class="preview-content-title">HP Build Workspace</h2>
+      <p class="preview-content-body">Redesigning the architecture of a construction SaaS platform around the people who needed it most.</p>
+    </div>
+  </div>
+  <footer class="footer-a">
+    <div class="footer-a-inner">
+      <div class="footer-a-top">
+        <p class="footer-a-cta">Always happy to connect <em>— say hi</em></p>
+        <div class="footer-a-links">
+          <a href="#" class="footer-a-link">carlaespino12@gmail.com ↗</a>
+          <a href="#" class="footer-a-link">LinkedIn ↗</a>
+          <a href="#" class="footer-a-link">Copy email</a>
+        </div>
+      </div>
+      <div class="footer-a-bottom">
+        <span>© 2026 Carla Espino</span>
+        <span>Designed and built vibecoding with Claude</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ OPTION B ══ -->
+  <div class="preview-page">
+    <div class="preview-tag">Option B — Big type</div>
+    <div class="preview-content">
+      <p class="preview-content-label">Last project</p>
+      <h2 class="preview-content-title">HP Build Workspace</h2>
+      <p class="preview-content-body">Redesigning the architecture of a construction SaaS platform around the people who needed it most.</p>
+    </div>
+  </div>
+  <footer class="footer-b">
+    <div class="footer-b-inner">
+      <p class="footer-b-eyebrow">Get in touch</p>
+      <h2 class="footer-b-cta">Always happy to<br>connect <em>— say hi</em></h2>
+      <a href="mailto:carlaespino12@gmail.com" class="footer-b-email">
+        carlaespino12@gmail.com ↗
+      </a>
+      <div class="footer-b-socials">
+        <a href="#" class="footer-b-social">LinkedIn ↗</a>
+        <a href="#" class="footer-b-social">Copy email</a>
+      </div>
+      <div class="footer-b-bottom">
+        <span>© 2026 Carla Espino</span>
+        <span>Designed and built vibecoding with Claude</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ OPTION C ══ -->
+  <div class="preview-page">
+    <div class="preview-tag">Option C — Split two-column</div>
+    <div class="preview-content">
+      <p class="preview-content-label">Last project</p>
+      <h2 class="preview-content-title">HP Build Workspace</h2>
+      <p class="preview-content-body">Redesigning the architecture of a construction SaaS platform around the people who needed it most.</p>
+    </div>
+  </div>
+  <footer class="footer-c">
+    <div class="footer-c-inner">
+      <div class="footer-c-grid">
+        <div class="footer-c-left">
+          <p class="footer-c-name">Carla Espino</p>
+          <p class="footer-c-bio">Product designer building SaaS products people actually use.</p>
+          <div class="footer-c-socials">
+            <a href="#" class="footer-c-social">LinkedIn ↗</a>
+            <a href="#" class="footer-c-social">carlaespino12@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-c-right">
+          <p class="footer-c-cta">Always happy to connect <em>— say hi</em></p>
+          <div class="footer-c-actions">
+            <a href="mailto:carlaespino12@gmail.com" class="footer-c-btn footer-c-btn--primary">Email me</a>
+            <button class="footer-c-btn">Copy email</button>
+            <a href="#" class="footer-c-btn">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-c-bottom">
+        <span>© 2026 Carla Espino</span>
+        <span>Designed and built vibecoding with Claude</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
