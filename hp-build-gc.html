@@ -595,6 +595,112 @@
   .ud-varrow--up .ud-vline { background: var(--lav-muted); opacity: 0.5; }
   .ud-vhead { flex-shrink: 0; color: var(--lav-accent); }
   .ud-varrow--up .ud-vhead { color: var(--lav-muted); opacity: 0.5; }
+
+  /* ── Problem section ── */
+  .prob-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 28px 0 36px;
+  }
+  .prob-card {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    padding: 22px 22px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .prob-card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    color: var(--lav-accent);
+    flex-shrink: 0;
+  }
+  .prob-card-title {
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+    color: var(--text);
+    margin: 0 0 6px 0;
+    line-height: var(--leading-snug);
+  }
+  .prob-card-body {
+    font-size: var(--text-base);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+  .sec-note {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 24px 0;
+    font-style: italic;
+  }
+  .prob-scenario {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 0 0 36px 0;
+    background: var(--surface);
+  }
+  .prob-scenario-body {
+    font-size: var(--text-sm);
+    color: var(--text);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 12px 0;
+  }
+  .prob-scenario-result {
+    font-size: var(--text-sm);
+    color: var(--muted);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+  .prob-threads {
+    margin: 24px 0 32px;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .prob-threads-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+  }
+  .prob-threads-row + .prob-threads-row { border-top: 1px solid var(--hairline); }
+  .prob-threads-row--header { background: var(--surface); }
+  .prob-threads-cell {
+    padding: 13px 18px;
+    font-size: var(--text-sm);
+    color: var(--text);
+    line-height: var(--leading-relaxed);
+    border-right: 1px solid var(--hairline);
+  }
+  .prob-threads-cell:last-child { border-right: none; }
+  .prob-threads-col-head {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    color: var(--text);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+  }
+  .prob-threads-label {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    color: var(--muted);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+  }
+  @media (max-width: 639px) {
+    .prob-cards { grid-template-columns: 1fr; }
+    .prob-threads-row { grid-template-columns: 80px 1fr; }
+    .prob-threads-row .prob-threads-cell:nth-child(3) { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -641,9 +747,7 @@
     </div>
   </div>
   <div class="cs-wrap cs-wrap--wide" style="background:var(--surface); border-radius:var(--radius); padding:24px;">
-    <div class="cs-img-placeholder fade-in" style="aspect-ratio:16/7; margin:0;">
-      <span class="cs-img-placeholder-label">Hero — GC workflow overview</span>
-    </div>
+    <img src="project-build-newarchitecture/Drawing detail.png" alt="HP Build — GC workflow overview" style="width:100%; height:auto; display:block; border-radius:var(--radius);" />
   </div>
 </section>
 
@@ -655,8 +759,7 @@
       <li><a href="#s-context"   class="cs-sidenav-link">Context</a></li>
       <li><a href="#s-problem"   class="cs-sidenav-link">The problem</a></li>
       <li class="cs-sidenav-protected"><a href="#s-what-changed" class="cs-sidenav-link cs-sidenav-link--locked">What changed and why</a></li>
-      <li class="cs-sidenav-protected"><a href="#s-whats-next"   class="cs-sidenav-link cs-sidenav-link--locked">Where we are</a></li>
-      <li class="cs-sidenav-protected"><a href="#s-outcome"      class="cs-sidenav-link cs-sidenav-link--locked">Outcome</a></li>
+<li class="cs-sidenav-protected"><a href="#s-outcome"      class="cs-sidenav-link cs-sidenav-link--locked">Outcome</a></li>
     </ul>
   </aside>
   <div class="cs-main" style="padding: 48px;">
@@ -667,136 +770,38 @@
   <div class="cs-section fade-in" id="s-context">
     <h2 class="sec-heading">What is HP Build Workspace</h2>
     <p class="sec-body">HP Build Workspace is a cloud platform that helps construction teams manage drawings — keeping everyone aligned on the latest version, from the architect's office to the construction site. It connects the people who design the plans with the teams responsible for executing them.</p>
+
+    <h2 class="sec-heading" style="margin-top: 48px;">My role</h2>
+    <p class="sec-body">I led the research, use case mapping, and interface design for the drawings-related value stream, working closely with a Product Manager on scope and an Experience Architect on information architecture. HP Build's product design team has 2 product designers total: one on the platform &amp; monetization value stream, and me on drawings, each owning our own area end to end.</p>
+    <p class="sec-body">Scope of this case: the drawings preview, the quick view of a drawing opened from the project's file list. This case documents one specific piece of that broader value stream</p>
   </div>
 
   <!-- §2 The Problem -->
   <div class="cs-section fade-in" id="s-problem">
-    <h2 class="sec-heading">Refocusing the product around the user who needed it most</h2>
-    <p class="sec-body">HP Build had the foundations of a solid product — but adoption wasn't where it needed to be. The product was built around creating and storing drawings, which served architects well. But the people with the most to gain from it had different needs that the product wasn't addressing yet.</p>
-    <p class="sec-body">The real opportunity was with the project manager and site team — not the people creating drawings, but the ones responsible for getting them to the right place at the right time.</p>
-    <div class="ud-diagram fade-in">
+    <h2 class="sec-heading">No clear way to know what's approved, and no clear path from a problem on site to an updated drawing</h2>
 
-      <!-- Zone labels -->
-      <div class="ud-zlabel ud-zlabel--office">Office</div>
-      <div class="ud-zlabel ud-zlabel--site">Site</div>
-
-      <!-- Hairline zone separator (full-width, row 2) -->
-      <div class="ud-zone-sep"></div>
-
-      <!-- Vertical connector: Jade ↔ Ryan (covers separator at col 4) -->
-      <div class="ud-vconn-cell">
-        <div class="ud-varrow ud-varrow--down">
-          <div class="ud-varrow-track">
-            <div class="ud-vline"></div>
-            <svg class="ud-vhead" width="9" height="6" viewBox="0 0 9 6" fill="currentColor" aria-hidden="true"><path d="M0 0 L4.5 6 L9 0 Z"/></svg>
-          </div>
-        </div>
-        <div class="ud-varrow ud-varrow--up">
-          <div class="ud-varrow-track">
-            <svg class="ud-vhead" width="9" height="6" viewBox="0 0 9 6" fill="currentColor" aria-hidden="true"><path d="M0 6 L4.5 0 L9 6 Z"/></svg>
-            <div class="ud-vline"></div>
-          </div>
-        </div>
+    <!-- Two context cards -->
+    <div class="prob-cards">
+      <div class="prob-card">
+        <span class="prob-card-icon">
+          <i data-lucide="file-text" width="22" height="22" stroke-width="1.5" aria-hidden="true"></i>
+        </span>
+        <p class="prob-card-title">No clear version control</p>
+        <p class="prob-card-body">Without a clear way to track what's approved, teams can end up building from the wrong version — a mistake that can cost real money to undo.</p>
       </div>
-
-      <!-- Legend -->
-      <div class="ud-legend">
-        <div class="ud-legend-item">
-          <span class="ud-legend-line">
-            <span class="ud-legend-seg"></span>
-            <svg width="5" height="8" viewBox="0 0 5 8" fill="var(--lav-accent)" aria-hidden="true"><path d="M0 0 L5 4 L0 8 Z"/></svg>
-          </span>
-          New version
-        </div>
-        <div class="ud-legend-item ud-legend-item--rev">
-          <span class="ud-legend-line">
-            <span class="ud-legend-seg"></span>
-            <svg width="5" height="8" viewBox="0 0 5 8" fill="var(--lav-muted)" aria-hidden="true"><path d="M0 0 L5 4 L0 8 Z"/></svg>
-          </span>
-          Revision
-        </div>
+      <div class="prob-card">
+        <span class="prob-card-icon">
+          <i data-lucide="link-2" width="22" height="22" stroke-width="1.5" aria-hidden="true"></i>
+        </span>
+        <p class="prob-card-title">Site issues don't reach the office</p>
+        <p class="prob-card-body">When something needs fixing on site, there's no clear path for that issue to become the next, corrected version.</p>
       </div>
-
-      <!-- Leo — Architect (secondary) -->
-      <div class="ud-card" style="grid-column:2;grid-row:1">
-        <div class="ud-av">
-          <img src="project-build-newarchitecture/avatar-architect.png" alt="Leo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="ud-av-init" style="display:none">L</span>
-        </div>
-        <p class="ud-card-name">Leo</p>
-        <p class="ud-card-role">Architect</p>
-      </div>
-
-      <!-- Bidirectional arrows: Leo ↔ Jade -->
-      <div class="ud-harrow-pair" style="grid-column:3;grid-row:1">
-        <div class="ud-harrow">
-          <div class="ud-harrow-track">
-            <div class="ud-hline"></div>
-            <svg class="ud-hhead" width="6" height="9" viewBox="0 0 6 9" fill="currentColor" aria-hidden="true"><path d="M0 0 L6 4.5 L0 9 Z"/></svg>
-          </div>
-        </div>
-        <div class="ud-harrow ud-harrow--rev">
-          <div class="ud-harrow-track">
-            <svg class="ud-hhead" width="6" height="9" viewBox="0 0 6 9" fill="currentColor" aria-hidden="true"><path d="M6 0 L0 4.5 L6 9 Z"/></svg>
-            <div class="ud-hline"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Jade — Project Manager (primary) -->
-      <div class="ud-card ud-card--pri" style="grid-column:4;grid-row:1">
-        <div class="ud-av">
-          <img src="project-build-newarchitecture/avatar-gc.png" alt="Jade"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="ud-av-init" style="display:none">J</span>
-        </div>
-        <p class="ud-card-name">Jade</p>
-        <p class="ud-card-role">Project Manager</p>
-        <span class="ud-card-tag">GC · Target user</span>
-      </div>
-
-      <!-- Ryan — Site Manager (primary) -->
-      <div class="ud-card ud-card--pri" style="grid-column:4;grid-row:3">
-        <div class="ud-av">
-          <img src="project-build-newarchitecture/avatar-sitemanager.png" alt="Ryan"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="ud-av-init" style="display:none">R</span>
-        </div>
-        <p class="ud-card-name">Ryan</p>
-        <p class="ud-card-role">Site Manager</p>
-        <span class="ud-card-tag">GC · Target user</span>
-      </div>
-
-      <!-- Bidirectional arrows: Ryan ↔ Pete -->
-      <div class="ud-harrow-pair" style="grid-column:5;grid-row:3">
-        <div class="ud-harrow">
-          <div class="ud-harrow-track">
-            <div class="ud-hline"></div>
-            <svg class="ud-hhead" width="6" height="9" viewBox="0 0 6 9" fill="currentColor" aria-hidden="true"><path d="M0 0 L6 4.5 L0 9 Z"/></svg>
-          </div>
-        </div>
-        <div class="ud-harrow ud-harrow--rev">
-          <div class="ud-harrow-track">
-            <svg class="ud-hhead" width="6" height="9" viewBox="0 0 6 9" fill="currentColor" aria-hidden="true"><path d="M6 0 L0 4.5 L6 9 Z"/></svg>
-            <div class="ud-hline"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pete — Foreman (secondary) -->
-      <div class="ud-card" style="grid-column:6;grid-row:3">
-        <div class="ud-av">
-          <img src="project-build-newarchitecture/avatar-foreman.png" alt="Pete"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <span class="ud-av-init" style="display:none">P</span>
-        </div>
-        <p class="ud-card-name">Pete</p>
-        <p class="ud-card-role">Foreman</p>
-      </div>
-
     </div>
-  </div>
+
+    <p class="sec-body">What this case study is about is narrower: the moment someone opens a drawing to take a quick look. At that moment, today, you can't tell if you're looking at the current version or an old one, or whether there's an open comment waiting on you. That small moment of confusion is what the redesign below addresses. The bigger question — connecting a specific field issue all the way to the version that resolves it — is still open. I come back to it under Outcome.</p>
+
+
+</div>
 
   <!-- §3 The Framework -->
   <!-- ── PASSWORD GATE ── -->
@@ -906,17 +911,7 @@
     </div>
   </div>
 
-  <!-- §5 Where we are -->
-  <div class="cs-section fade-in" id="s-whats-next">
-    <h2 class="sec-heading">Where we are</h2>
-    <p class="sec-body">Some of this is live. Some is in development. Some is still ahead.</p>
-    <div class="cs-img-placeholder fade-in" style="margin-top:48px; margin-bottom:48px;">
-      <span class="cs-img-placeholder-label">Project status — Live / In development / Vision</span>
-    </div>
-    <p class="sec-body">The next step in this story connects directly to the following case study — letting site teams scan physical drawings from the HP printer straight into HP Build, turning paper into a digital, editable file without any manual steps.</p>
-  </div>
-
-  <!-- §7 Outcome -->
+<!-- §7 Outcome -->
   <div class="cs-section fade-in" id="s-outcome">
     <h2 class="sec-heading">Outcome</h2>
     <p class="sec-body">This project is still in progress. What I can point to is the shift in what the product is designed around — from managing files, to managing the flow of information between people.</p>

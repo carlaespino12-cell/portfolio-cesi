@@ -25,20 +25,20 @@ const siteContent = {
     {
       href:    'hp-build-gc.html',
       image:   'project-1/thumbnail1.png',
-      image2:  'project-1/thumbnail1.png',
       alt:     'HP Build Workspace — GC Workflow',
       title:   'Making sure the right drawing is always in the right hands',
       desc:    'Redesigning the product architecture around the General Contractor\'s real workflow',
-      product: 'HP Build'
+      product: 'HP Build',
+      logo:    'assets/HPBuild-icon-foreground.svg'
     },
     {
       href:    'ai-vectorize.html',
       image:   'project-2/thumbnail2.png',
-      image2:  'project-2/thumbnail2.png',
       alt:     'AI Vectorize',
-      title:   'AI Vectorize',
+      title:   'Turning HP printers into an adoption channel for HP Build',
       desc:    'Designing a seamless plotter-to-cloud workflow that converts scanned analog plans into editable CAD files — across three screen sizes and two platforms.',
-      product: 'HP DesignJet'
+      product: 'HP DesignJet',
+      logo:    'project-2/vectorize-icon.svg'
     }
   ]
 };
@@ -67,6 +67,8 @@ const _actionSvg = `<svg width="11" height="11" viewBox="0 0 11 11" fill="none" 
 // btn class is added wherever _actionBtn is used
 const _logoSvg   = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`;
 
+const _viewArrowSvg = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4"/></svg>`;
+
 function _renderProjectCards() {
   const el = document.querySelector('#case-studies');
   if (!el) return;
@@ -75,20 +77,16 @@ function _renderProjectCards() {
       <a class="entry-images-wrap" href="${p.href}">
         <div class="entry-image-wrap">
           <img src="${p.image}" alt="${p.alt}" loading="lazy" width="800" height="600" />
-          <span class="entry-product-tag">${p.product}</span>
-        </div>
-        <div class="entry-image-wrap entry-image-2">
-          <img src="${p.image2}" alt="${p.alt}" loading="lazy" width="800" height="600" />
+          <div class="entry-hover-overlay" aria-hidden="true">
+            <span class="entry-view-pill">${_viewArrowSvg} View now</span>
+          </div>
         </div>
       </a>
       <div class="entry-info">
-        <div class="entry-info-top">
-          <div class="entry-title-group">
-            <h2 class="entry-title">${p.title}</h2>
-            <p class="entry-outcome">${p.desc}</p>
-          </div>
-          <a class="btn btn-utility" href="${p.href}" aria-label="View case study"><i data-lucide="arrow-right" width="14" height="14" stroke-width="1.2" aria-hidden="true"></i></a>
+        <div class="entry-client-row">
+          <span class="entry-product-name">${p.product}</span>
         </div>
+        <h2 class="entry-title">${p.title}</h2>
       </div>
     </div>`).join('');
 }
