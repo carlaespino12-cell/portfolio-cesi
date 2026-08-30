@@ -2,7 +2,8 @@
 @media (max-width: 839px) {
   :root { --px: 16px; --gap: 72px; --grid-gap: 16px; --grid-cols: 8; }
 
-.entry-image-wrap   { grid-column: span 4; }
+.case-studies        { grid-template-columns: 1fr; row-gap: 40px; }
+  .entry-image-wrap   { grid-column: span 4; }
   .meta-card          { grid-column: span 4; }
   .challenge-card     { grid-column: span 4; }
   .compare-cell       { grid-column: span 8; }

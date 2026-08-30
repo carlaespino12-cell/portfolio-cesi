@@ -24,7 +24,7 @@ const siteContent = {
   projects: [
     {
       href:    'hp-build-gc.html',
-      image:   'project-1/thumbnail1.png',
+      image:   'project-build-newarchitecture/build-thumbnail.png',
       alt:     'HP Build Workspace — GC Workflow',
       title:   'Making sure the right drawing is always in the right hands',
       desc:    'Redesigning the product architecture around the General Contractor\'s real workflow',

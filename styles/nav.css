@@ -63,16 +63,8 @@ nav.scrolled .nav-inner {
 .nav-avatar {
   width: 20px; height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 40%, #3B82F6 70%, #024AD8 100%);
-  background-size: 180% 180%;
+  background: url('../assets/logo.png') center / cover no-repeat;
   flex-shrink: 0;
-  animation: avatar-drift 5s ease-in-out infinite;
-}
-
-@keyframes avatar-drift {
-  0%   { background-position: 25% 35%; filter: blur(0.5px); transform: scale(1.04); }
-  50%  { background-position: 65% 60%; filter: blur(1.4px); transform: scale(1.13); }
-  100% { background-position: 25% 35%; filter: blur(0.5px); transform: scale(1.04); }
 }
 
 
