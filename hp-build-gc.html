@@ -29,25 +29,6 @@
     --lav-sep:     #AECAF4;
   }
 
-  /* ── Locked sidenav items ── */
-  .cs-sidenav-link--locked {
-    opacity: 0.35;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .cs-sidenav-link--locked::after {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    flex-shrink: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
   /* ── Gate separator ── */
   .cs-gate-sep {
     display: flex;
@@ -66,128 +47,6 @@
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
     white-space: nowrap;
-  }
-
-  /* ── Gate card ── */
-  .cs-gate {
-    background: var(--surface);
-    border: 1px solid var(--hairline);
-    border-radius: 8px;
-    padding: 72px 80px 68px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .cs-gate-icon-wrap {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
-    color: var(--lav-accent);
-    margin-bottom: 20px;
-  }
-  .cs-gate-title {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-medium);
-    color: var(--text);
-    margin: 0 0 12px 0;
-    line-height: var(--leading-snug);
-  }
-  .cs-gate-body {
-    font-size: var(--text-base);
-    color: var(--muted);
-    line-height: var(--leading-relaxed);
-    margin: 0 0 24px 0;
-    max-width: 58ch;
-  }
-  .cs-gate-email {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: inherit;
-    font-size: var(--text-base);
-    font-weight: var(--weight-regular);
-    color: var(--text);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--text);
-    transition: opacity 0.15s ease;
-  }
-  .cs-gate-email:hover { opacity: 0.6; }
-  .cs-gate-contact {
-    font-size: var(--text-sm);
-    color: var(--muted);
-    margin: 14px 0 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-  }
-  .cs-gate-split {
-    display: inline-flex;
-    align-items: center;
-    background: #fff;
-    border: 1px solid var(--hairline);
-    border-radius: 999px;
-    padding: 4px 4px 4px 14px;
-    transition: border-color 0.2s ease;
-  }
-  .cs-gate-split:focus-within { border-color: var(--gray-50); }
-  .cs-gate-split.error { border-color: #c0392b; animation: cs-shake 0.35s ease; }
-  .cs-gate-input {
-    flex: 1;
-    min-width: 160px;
-    height: 34px;
-    padding: 0;
-    font-family: inherit;
-    font-size: var(--text-base);
-    font-weight: var(--weight-regular);
-    color: var(--text);
-    background: transparent;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-  }
-  .cs-gate-input::placeholder { color: var(--gray-50); }
-  .cs-gate-split-btn {
-    display: inline-flex;
-    align-items: center;
-    height: 34px;
-    padding: 0 14px;
-    background: var(--text);
-    color: #fff;
-    border: none;
-    border-radius: 999px;
-    font-family: inherit;
-    font-size: var(--text-base);
-    font-weight: var(--weight-regular);
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: background 0.2s ease;
-  }
-  .cs-gate-split-btn:hover { background: var(--gray-90); }
-  .cs-gate-error {
-    display: none;
-    align-items: center;
-    gap: 5px;
-    font-size: var(--text-sm);
-    color: #c0392b;
-    margin: 10px 0 0 0;
-    line-height: var(--leading-normal);
-    text-align: center;
-  }
-  .cs-gate-error.visible {
-    display: inline-flex;
   }
 
   /* ── What changed blocks ── */
@@ -279,106 +138,6 @@
     line-height: var(--leading-loose);
     margin: 0;
     font-weight: var(--weight-light);
-  }
-
-  /* ── Gate collapse ── */
-  .cs-gate {
-    overflow: hidden;
-  }
-  .cs-gate--collapsing {
-    opacity: 0 !important;
-    max-height: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    border-color: transparent !important;
-    transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease, border-color 0.3s ease !important;
-  }
-
-  /* ── Toast notification ── */
-  .cs-toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    z-index: 10001;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #111;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    font-size: var(--text-sm);
-    color: #fff;
-    pointer-events: none;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(-50%) translateY(12px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  .cs-toast.visible {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  .cs-toast.hiding {
-    opacity: 0;
-    transform: translateX(-50%) translateY(4px);
-  }
-  .cs-toast .cs-toast-icon {
-    display: inline-flex;
-    color: #16A34A;
-    flex-shrink: 0;
-  }
-
-  /* ── Gate loading state ── */
-  .cs-gate--loading {
-    background: transparent;
-    border-color: transparent;
-    box-shadow: none;
-    padding: 72px 80px;
-  }
-  .cs-gate--loading .cs-gate-title,
-  .cs-gate--loading .cs-gate-body,
-  .cs-gate--loading .cs-gate-split,
-  .cs-gate--loading .cs-gate-error,
-  .cs-gate--loading .cs-gate-contact {
-    display: none;
-  }
-  .cs-gate--loading .cs-gate-icon-wrap {
-    background: transparent;
-    box-shadow: none;
-    color: var(--muted);
-    margin-bottom: 0;
-    width: 72px;
-    height: 72px;
-  }
-  .cs-gate--loading .cs-gate-icon-wrap svg {
-    width: 36px;
-    height: 36px;
-  }
-  @keyframes cs-spin {
-    to { transform: rotate(360deg); }
-  }
-  .cs-gate-icon-wrap--spinning svg {
-    animation: cs-spin 0.75s linear infinite;
-    transform-origin: center;
-  }
-
-  /* ── Protected content reveal ── */
-  #cs-protected { display: none; }
-  #cs-protected.unlocked {
-    display: block;
-    padding-top: 120px;
-    animation: cs-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes cs-reveal {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes cs-shake {
-    0%, 100% { transform: translateX(0); }
-    20%      { transform: translateX(-5px); }
-    60%      { transform: translateX(5px); }
   }
 
   /* ── User diagram ── */
@@ -625,7 +384,6 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
   }
   .prob-card-icon {
     display: inline-flex;
@@ -637,12 +395,13 @@
     border-radius: 8px;
     color: var(--text);
     flex-shrink: 0;
+    margin-bottom: 28px;
   }
   .prob-card-title {
     font-size: var(--text-md);
     font-weight: var(--weight-medium);
     color: var(--text);
-    margin: 0 0 6px 0;
+    margin: 0 0 2px 0;
     line-height: var(--leading-snug);
   }
   .prob-card-body {
@@ -776,8 +535,10 @@
       <div class="meta-card"><span class="meta-key">Status</span><span class="meta-val">In development</span></div>
     </div>
   </div>
-  <div class="cs-wrap cs-wrap--wide" style="background:var(--surface); padding:24px;">
-    <img src="project-build-newarchitecture/build-hero.png" alt="HP Build — GC workflow overview" style="width:100%; height:auto; display:block; border-radius:var(--radius);" />
+  <div class="cs-hero-cover-band">
+    <div class="cs-wrap cs-wrap--wide">
+      <img src="project-build-newarchitecture/build-hero.png" alt="HP Build — GC workflow overview" style="width:100%; height:auto; display:block; border-radius:var(--radius);" />
+    </div>
   </div>
 </section>
 
@@ -926,13 +687,13 @@
 
     <div class="cs-role-callout" style="margin-top: 48px;">
       <h2 class="sec-heading">My role</h2>
-      <p class="sec-body">I led the research, use case mapping, and experience design and strategy for the drawings-related value stream, working closely with the Product Manager.</p>
+      <p class="sec-body">I led the research, use case mapping, and experience design and strategy for the drawings-related value stream, working closely with the Product Manager, engineering and quality team.</p>
     </div>
   </div>
 
   <!-- §2 The Problem -->
   <div class="cs-section fade-in" id="s-problem">
-    <h2 class="sec-heading">No clear way to know what's approved, and no clear path from a problem on site to an updated drawing</h2>
+    <h2 class="sec-heading">No clear version control, no clear communication between site and office</h2>
 
     <!-- Two context cards -->
     <div class="prob-cards">
@@ -941,18 +702,18 @@
           <i data-lucide="file-text" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i>
         </span>
         <p class="prob-card-title">No clear version control</p>
-        <p class="prob-card-body">Without a clear way to track what's approved, teams can end up building from the wrong version — a mistake that can cost real money to undo.</p>
+        <p class="prob-card-body">Without a clear way to track what's approved, teams can end up building from the wrong version — a mistake that costs real money to undo.</p>
       </div>
       <div class="prob-card">
         <span class="prob-card-icon">
-          <i data-lucide="link-2" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i>
+          <i data-lucide="refresh-cw" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i>
         </span>
         <p class="prob-card-title">Site issues don't reach the office</p>
         <p class="prob-card-body">When something needs fixing on site, there's no clear path for that issue to become the next, corrected version.</p>
       </div>
     </div>
 
-    <p class="sec-body">What this case study is about is narrower: the moment someone opens a drawing to take a quick look. At that moment, today, you can't tell if you're looking at the current version or an old one, or whether there's an open comment waiting on you. That small moment of confusion is what the redesign below addresses. The bigger question — connecting a specific field issue all the way to the version that resolves it — is still open. I come back to it under Outcome.</p>
+    <p class="sec-body">This case study focuses on the first moment of that gap — opening a drawing and knowing what you're looking at. The full path from a site issue to the version that resolves it is still in progress.</p>
 
 
 </div>
@@ -981,24 +742,24 @@
   <!-- §4 What changed and why -->
   <div class="cs-section fade-in" id="s-what-changed">
     <h2 class="sec-heading">Making the drawing the place where communication happens</h2>
-    <p class="sec-body">HP Build's value proposition is that the drawing is the single source of truth connecting site and office. For that to be true, every job people do around a drawing, checking a version, flagging an issue on site, has to happen on the drawing itself, not scattered across WhatsApp or email.</p>
-    <p class="sec-body">I mapped the JTBD (jobs to be done) for each persona around a drawing, based on 22 interviews and shadowing sessions in Barcelona. Mapping those jobs against frequency per persona shaped the information architecture and the flows below.</p>
+    <p class="sec-body">HP Build's value proposition is that the drawing is the single source of truth connecting site and office. For that to work, every job around a drawing — checking a version, flagging an issue — has to happen on the drawing itself, not scattered across WhatsApp or email.</p>
+    <p class="sec-body">I mapped the JTBD (jobs to be done) for each persona, based on 22 interviews and shadowing sessions in Barcelona. The clearest pattern: checking the drawing and its activity, or logging a new issue, happened far more than anything else.</p>
 
     <div class="cs-img-placeholder">
       <img src="project-build-newarchitecture/jtbd-scheme-table.png" alt="JTBD mapping by persona and frequency" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:8px;" />
     </div>
 
-    <p class="sec-body"><strong>Version status, always visible.</strong> A badge and version selector now sit at the top. All actions related to version control are grouped under the version identifier, an easy way to navigate and understand what changed between versions.</p>
+    <p class="sec-body"><strong>Version status, always visible.</strong> Version info used to live as a hyperlink in the header — easy to miss. We considered making version history the default view, but JTBD research showed people ask "what's the current state of this version?" far more often than "what changed between versions?". So the badge leads with the active version and its status; history is one click away, not the default.</p>
     <div class="cs-img-placeholder">
       <img src="project-build-newarchitecture/Version-control.png" alt="Version badge and selector" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:8px;" />
     </div>
 
-    <p class="sec-body"><strong>Activity, the main view.</strong> An easy way to understand what's happening on site, and what needs to be updated in the drawing, which will generate a new version.</p>
+    <p class="sec-body"><strong>Activity, the main view.</strong> This was a new capability. Comments used to be plain text — no way to pin them to a spot on the drawing, no status, just a comment. Activity makes issues trackable: a comment, markup or document tied to a location and a state, so anyone can see not just what was said, but what's still open and needs to become the next version.</p>
     <div class="cs-img-placeholder">
       <img src="project-build-newarchitecture/Activity.png" alt="Activity panel" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:8px;" />
     </div>
 
-    <p class="sec-body"><strong>The tools people actually use, always visible.</strong> Draw, Comment, Pin: different triggers and formats (images, comments, markups) for the same underlying job, communicating something about a specific area or element of the drawing, adapted to each person's needs and way of working.</p>
+    <p class="sec-body"><strong>The tools people actually use, always visible.</strong> These used to sit behind a mode you had to turn on, with no real distinction between them. Mapping the JTBD showed they're the same underlying job — flag something at a specific point on the drawing — just in different formats for different ways of working. So we designed three explicit tools, always visible, each person reaching for the trigger that fits.</p>
     <div class="cs-img-placeholder">
       <img src="project-build-newarchitecture/Communication.png" alt="Toolbar — Draw, Comment, Pin" style="width:100%; height:100%; object-fit:cover; display:block; border-radius:8px;" />
     </div>
@@ -1011,28 +772,24 @@
 
 <!-- §7 Outcome -->
   <div class="cs-section fade-in" id="s-outcome">
-    <h2 class="sec-heading">Outcome</h2>
-    <p class="cs-outcome-headline">The drawing now connects what's happening on site and office, in one place, without anyone needing to double-check elsewhere.</p>
+    <p class="cs-outcome-headline">HP Build now connects what's happening on site and office, in one place, without anyone needing to double-check elsewhere.</p>
     <p class="sec-body">Three metrics, each answering a different question: are people using it, can they complete the core tasks, and how does it feel to do it.</p>
 
     <div class="cs-outcome-grid">
       <div class="cs-outcome-card">
-        <div class="cs-outcome-icon">📈</div>
+        <div class="cs-outcome-icon"><i data-lucide="trending-up" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i></div>
         <span class="cs-outcome-num">72%</span>
         <span class="cs-outcome-desc">of active projects with version control adopted.</span>
-        <span class="cs-outcome-tag">Adoption</span>
       </div>
       <div class="cs-outcome-card">
-        <div class="cs-outcome-icon">✅</div>
+        <div class="cs-outcome-icon"><i data-lucide="check-circle" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i></div>
         <span class="cs-outcome-num">92%</span>
         <span class="cs-outcome-desc">success rate of key JTBD tasks.</span>
-        <span class="cs-outcome-tag">Usability test</span>
       </div>
-      <div class="cs-outcome-card cs-outcome-card--full">
-        <div class="cs-outcome-icon">🙂</div>
+      <div class="cs-outcome-card">
+        <div class="cs-outcome-icon"><i data-lucide="smile" width="18" height="18" stroke-width="1.5" aria-hidden="true"></i></div>
         <span class="cs-outcome-num">4.2 / 5</span>
         <span class="cs-outcome-desc">CSAT for collaboration on the drawing.</span>
-        <span class="cs-outcome-tag">CSAT</span>
       </div>
     </div>
   </div>

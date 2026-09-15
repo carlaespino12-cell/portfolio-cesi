@@ -33,7 +33,7 @@ const siteContent = {
     },
     {
       href:    'ai-vectorize.html',
-      image:   'project-2/thumbnail2.png',
+      image:   'project-2/thumbnail-vectorize.png',
       alt:     'AI Vectorize',
       title:   'Turning HP printers into an adoption channel for HP Build',
       desc:    'Designing a seamless plotter-to-cloud workflow that converts scanned analog plans into editable CAD files — across three screen sizes and two platforms.',
@@ -58,7 +58,7 @@ function _renderFooter() {
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© ${new Date().getFullYear()} ${siteContent.nameFull}</span>
-      <span class="footer-copy">Designed and built vibecoding with Claude</span>
+      <span class="footer-copy">Built with Claude</span>
     </div>
   </div>`;
 }
@@ -158,7 +158,31 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   _initSidenavActive();
+  _initSidenavScroll();
 });
+
+// ─── Sidebar click → smooth-scroll with sticky-header offset ────────
+function _initSidenavScroll() {
+  const SECTION_OFFSET = 40; // gap below the sticky nav
+
+  document.addEventListener('click', e => {
+    const link = e.target.closest('.cs-sidenav-link');
+    if (!link || link.classList.contains('cs-sidenav-link--locked')) return;
+
+    const href = link.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+    const nav = document.querySelector('nav');
+    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - navHeight - SECTION_OFFSET;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+    history.pushState(null, '', href);
+  });
+}
 
 // ─── Counter animations (data-count) ──────────────────────────────
 function _initCounterAnimations() {
